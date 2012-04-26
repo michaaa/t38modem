@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="OpenPhone"
+	RootNamespace="OpenPhone"
+	SccProjectName=""
+	SccLocalPath="">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="..\..\bin\$(ProjectName)\$(ConfigurationName)"
+			IntermediateDirectory="..\..\bin\$(ProjectName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="&quot;$(WXDIR)\lib\vc_lib\msw&quot;;&quot;$(WXDIR)\include&quot;"
+				PreprocessorDefinitions="NDEBUG;_WINDOWS;PTRACING=1"
+				StringPooling="TRUE"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
+				ProgramDataBaseFileName="$(TargetDir)\$(TargetName).pdb"
+				WarningLevel="4"
+				SuppressStartupBanner="TRUE"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="wxmsw$(WXVER)_xrc.lib wxmsw$(WXVER)_html.lib wxmsw$(WXVER)_adv.lib wxmsw$(WXVER)_core.lib wxbase$(WXVER)_xml.lib wxbase$(WXVER).lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregex.lib wxexpat.lib comctl32.lib rpcrt4.lib"
+				OutputFile="$(OutDir)\$(ProjectName).exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="$(WXDIR)\lib\vc_lib"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(TargetDir)\$(TargetName).pdb"
+				SubSystem="2"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Release/OpenPhone.tlb"
+				HeaderFileName=""/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"
+				Description="Checking for wxWidgets"
+				CommandLine="if exist &quot;%WXDIR%&quot; exit 0
+echo $(TargetName) : error : Must have a WXDIR variable set to use wxWidgets!
+exit 1
+"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="3081"
+				AdditionalIncludeDirectories="&quot;$(WXDIR)\include&quot;"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="..\..\bin\$(ProjectName)\$(ConfigurationName)"
+			IntermediateDirectory="..\..\bin\$(ProjectName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="&quot;$(WXDIR)\lib\vc_lib\mswd&quot;;&quot;$(WXDIR)\include&quot;"
+				PreprocessorDefinitions="_DEBUG;_WINDOWS;PTRACING=1"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
+				ProgramDataBaseFileName="$(TargetDir)\$(TargetName).pdb"
+				BrowseInformation="1"
+				WarningLevel="4"
+				SuppressStartupBanner="TRUE"
+				DebugInformationFormat="4"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="wxmsw$(WXVER)d_xrc.lib wxmsw$(WXVER)d_html.lib wxmsw$(WXVER)d_adv.lib wxmsw$(WXVER)d_core.lib wxbase$(WXVER)d_xml.lib wxbase$(WXVER)d.lib wxtiffd.lib wxjpegd.lib wxpngd.lib wxzlibd.lib wxregexd.lib wxexpatd.lib comctl32.lib rpcrt4.lib"
+				OutputFile="$(OutDir)\$(ProjectName).exe"
+				LinkIncremental="2"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="$(WXDIR)\lib\vc_lib"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(TargetDir)\$(TargetName).pdb"
+				SubSystem="2"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Debug/OpenPhone.tlb"
+				HeaderFileName=""/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"
+				Description="Checking for wxWidgets"
+				CommandLine="if exist &quot;%WXDIR%&quot; exit 0
+echo $(TargetName) : error : Must have a WXDIR variable set to use wxWidgets!
+exit 1
+"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG"
+				Culture="3081"
+				AdditionalIncludeDirectories="&quot;$(WXDIR)\include&quot;"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="No Trace|Win32"
+			OutputDirectory="..\..\bin\$(ProjectName)\$(ConfigurationName)"
+			IntermediateDirectory="..\..\bin\$(ProjectName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="&quot;$(WXDIR)\lib\vc_lib\msw&quot;;&quot;$(WXDIR)\include&quot;"
+				PreprocessorDefinitions="NDEBUG;_WINDOWS;PTRACING=0;PASN_NOPRINTON;PASN_LEANANDMEAN"
+				StringPooling="TRUE"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
+				ProgramDataBaseFileName="$(TargetDir)\$(TargetName).pdb"
+				WarningLevel="4"
+				SuppressStartupBanner="TRUE"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="wxmsw$(WXVER)_xrc.lib wxmsw$(WXVER)_html.lib wxmsw$(WXVER)_adv.lib wxmsw$(WXVER)_core.lib wxbase$(WXVER)_xml.lib wxbase$(WXVER).lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregex.lib wxexpat.lib comctl32.lib rpcrt4.lib"
+				OutputFile="$(OutDir)\$(ProjectName).exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="$(WXDIR)\lib\vc_lib"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(TargetDir)\$(TargetName).pdb"
+				SubSystem="2"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Release/OpenPhone.tlb"
+				HeaderFileName=""/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"
+				Description="Checking for wxWidgets"
+				CommandLine="if exist &quot;%WXDIR%&quot; exit 0
+echo $(TargetName) : error : Must have a WXDIR variable set to use wxWidgets!
+exit 1
+"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="3081"
+				AdditionalIncludeDirectories="&quot;$(WXDIR)\include&quot;"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+		<ProjectReference
+			ReferencedProjectIdentifier="{0BF5DA42-4607-485F-9342-51FD28854F3B}"
+			Name="OPAL_dll"/>
+	</References>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat;for;f90">
+			<File
+				RelativePath="main.cxx">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						Optimization="2"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						Optimization="0"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+						BasicRuntimeChecks="3"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="No Trace|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						Optimization="2"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;fi;fd">
+			<File
+				RelativePath="main.h">
+			</File>
+			<File
+				RelativePath="version.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe">
+			<File
+				RelativePath=".\openphone.rc">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCResourceCompilerTool"
+						AdditionalIncludeDirectories="&quot;$(WXDIR)\include&quot;"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\openphone.xrc">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Creating C++ source from XML resource file"
+						CommandLine="%WXDIR%\bin\wxrc -c $(InputPath)
+"
+						Outputs="resource.cpp"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Creating C++ source from XML resource file"
+						CommandLine="%WXDIR%\bin\wxrc -c $(InputPath)
+"
+						Outputs="resource.cpp"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="No Trace|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Creating C++ source from XML resource file"
+						CommandLine="%WXDIR%\bin\wxrc -c $(InputPath)
+"
+						Outputs="resource.cpp"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\resource.cpp">
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

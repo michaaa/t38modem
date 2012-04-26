@@ -1,0 +1,59 @@
+prefix=/opt/t38modem
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+cxxflags= -felide-constructors -Wreorder
+suffix=
+machtype=x86_64
+ostype=linux
+objdir=obj_linux_x86_64${suffix}
+
+Name: ptlib
+Description: PT Library
+Version: 2.9.0
+Libs: -L${libdir} -lpt${suffix}
+Libs.private:  -lpthread -lrt -lexpat  -lresolv -ldl
+Cflags: -I${includedir}  -DP_64BIT -DPTRACING=1 -D_REENTRANT   -fno-exceptions
+
+PTLIB_IPV6=yes
+PTLIB_RESOLVER=yes
+PTLIB_OPENSSL=no
+PTLIB_OPENSSL_AES=no
+PTLIB_OPENLDAP=no
+PTLIB_SASL=no
+PTLIB_SASL2=no
+PTLIB_EXPAT=yes
+PTLIB_REGEX=yes
+PTLIB_SDL=no
+PTLIB_VIDEO_CAPTURE=yes
+
+PTLIB_TTS=yes
+PTLIB_ASN=yes
+PTLIB_STUN=yes
+PTLIB_PIPECHAN=yes
+PTLIB_DTMF=yes
+PTLIB_WAVFILE=yes
+PTLIB_SOCKS=yes
+PTLIB_FTP=yes
+PTLIB_SNMP=yes
+PTLIB_TELNET=yes
+PTLIB_REMCONN=yes
+PTLIB_SERIAL=yes
+PTLIB_POP3SMTP=yes
+PTLIB_AUDIO=yes
+PTLIB_VIDEO=yes
+PTLIB_SHM_VIDEO=yes
+
+PTLIB_VXML=yes
+PTLIB_JABBER=yes
+PTLIB_XMLRPC=yes
+PTLIB_SOAP=yes
+PTLIB_URL=yes
+PTLIB_HTTP=yes
+PTLIB_HTTPFORMS=yes
+PTLIB_HTTPSVC=yes
+PTLIB_CONFIG_FILE=yes
+PTLIB_SOCKAGG=no
+PTLIB_VIDFILE=yes
+PTLIB_ODBC=no
+

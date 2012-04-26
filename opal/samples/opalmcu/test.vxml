@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<vxml>
+  <form>
+    <field name="conference">
+      <grammar mode="dtmf" type="X-OPAL/digits">
+        minDigits=1;
+        maxDigits=5;
+        terminators=#
+      </grammar>
+      <prompt>
+        <audio src="file:../callgen/ogm.wav">
+          This is the OPAL, M C U test program, please select a conference.
+        </audio>
+      </prompt>
+    </field>
+    <filled>
+      <transfer bridge="false" destexpr="'mcu:'+conference"/>
+    </filled>
+  </form>
+</vxml>

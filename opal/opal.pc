@@ -1,0 +1,37 @@
+prefix=/opt/t38modem
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+suffix=
+machtype=x86_64
+ostype=linux
+objdir=obj_linux_x86_64${suffix}
+
+Name: opal
+Description: Open Phone Application Library
+Version: 3.9.0
+Requires: ptlib
+Libs: -L${libdir} -lopal${suffix}  -ldl 
+Cflags: -I${includedir} -I${includedir}/opal  
+
+#Optional OPAL features
+OPAL_H323=yes
+OPAL_SIP=yes
+OPAL_IAX2=yes
+OPAL_VIDEO=yes
+OPAL_ZRTP=no
+OPAL_LID=yes
+OPAL_IVR=yes
+OPAL_HAS_H224=yes
+OPAL_HAS_H281=yes
+OPAL_H460=yes
+OPAL_SRTP=no
+OPAL_RFC4175=yes
+OPAL_AEC=yes
+OPAL_G711PLC=yes
+OPAL_T38_CAP=yes
+OPAL_FAX=yes
+OPAL_JAVA=no
+OPAL_HAS_MSRP=yes
+OPAL_HAS_SIPIM=yes
+OPAL_HAS_RFC4103=yes

@@ -1,0 +1,16 @@
+# Simple configuration of t38modem init script
+
+# Number of t38modem processes to initialize
+T38_PROCESSES=1
+
+# how many PTY should be created per t38modem process
+T38_PTY_PER_PROCESS=2
+
+# start port (lisening for SIP calls)
+START_PORT=5060
+
+# IP of you T38 gateway device
+ASTERISK_IP=192.168.202.2
+
+# Bind to this local ip (defauls to all)
+BIND_IP=*

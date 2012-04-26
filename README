@@ -1,0 +1,24 @@
+T38 Modem 2.0 Linux Build Package
+=================================
+
+This Builds a t38modem v2.0 with ptlib/OPAL depency using the correct version ofptlib and OPAL, tested on Debian Squeeze.
+
+Additionaly it creats an init-Script as described on
+
+http://www.foriamroot.org/hylafax-6-0-debian-or-ubuntu-t38modem-1-0-asterisk-1-6/
+
+You just need a build system using the following packages (Debian/Ubuntu)
+
+apt-get install g++ flex bison libexpat1-dev giflib-tools pkg-config
+
+Then just run
+
+sh build.sh
+
+The standalone version of t38modem will be put to /opt/t38modem and can be invoked by setting the correct LD_LIBRARY_PATH
+
+LD_LIBRARY_PATH=LD_LIBRARY_PATH:/opt/t38modem/lib/ /opt/t38modem/bin/t38modem <parameters>
+
+You can invoke t38modem by using the provided init script. Put configuration details in /etc/default/t38modem fitting your needs or feel free to edit the init script.
+
+To activate an FaxModem in HylaFax, put modem config file from t38modem/Hylafax to /etc/hylafax/config.ttyT38-<n> for as much Devices you created.

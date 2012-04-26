@@ -1,0 +1,70 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:		t38modem
+# Required-Start:	$remote_fs $syslog
+# Required-Stop:	$remote_fs $syslog
+# Default-Start:	2 3 4 5
+# Default-Stop:		
+# Short-Description:	T.38 Modem emulator
+### END INIT INFO
+
+export LD_LIBRARY_PATH=LD_LIBRARY_PATH:/opt/t38modem/lib/        # This is needed for t38modem to find the libraries
+ 
+T38_PROCESSES=1
+T38_PTY_PER_PROCESS=2
+START_PORT=5060
+ASTERISK_IP=192.168.202.2
+BIND_IP=*
+
+[ -r /etc/default/t38modem ] && . /etc/default/t38modem
+
+ 
+case "$1" in
+          start)
+                    COUNTER=0
+                    CURRENT_PORT=${START_PORT} 
+                    while [  $COUNTER -lt $T38_PROCESSES ]; do
+			      PORT_STRING=""
+			      PCOUNT=0 
+			      while [  $PCOUNT -lt $T38_PTY_PER_PROCESS ]; do
+				   if [ "${PORT_STRING}" == "" ]; then
+					PORT_STRING="+/dev/ttyT38-$[ COUNTER * T38_PTY_PER_PROCESS + PCOUNT ]"
+				   else
+					PORT_STRING="${PORT_STRING},+/dev/ttyT38-$[ COUNTER * T38_PTY_PER_PROCESS + PCOUNT ]"
+				   fi
+				PCOUNT=$[ PCOUNT + 1 ]
+			      done
+                              COMMAND="/opt/t38modem/bin/t38modem -t -o /var/log/t38modem${COUNTER}.log --no-h323 -u T38modem${COUNTER} --sip-listen udp\$${BIND_IP}:${CURRENT_PORT} --ptty $PORT_STRING --route modem:.*=sip:<dn>@${ASTERISK_IP} --route sip:.*=modem:<dn>"
+ 
+                              exec $COMMAND > /dev/null 2>&1 &
+ 
+                              PID=$!
+ 
+                              echo "Starting t38modem with pid $PID (pidfile /var/run/t38modem/$COUNTER)"
+ 
+                              echo $PID > /var/run/t38modem/$COUNTER
+ 
+                              COUNTER=$[ COUNTER + 1 ]
+                              CURRENT_PORT=$[ CURRENT_PORT + 1 ]
+                    done
+          ;;
+          stop)
+                    echo -n "Stopping t38modem pids: "
+ 
+                    for pidfile in `ls /var/run/t38modem`
+                    do
+                              _PID=`cat /var/run/t38modem/$pidfile`
+                              kill -9 $_PID
+                              rm /var/run/t38modem/$pidfile
+                              echo -n $_PID" "
+                    done
+                    echo " Done"
+          ;;
+          *)
+                    echo "Usage: $0 {start|stop}" >&2
+                    exit 1
+          ;;
+esac
+ 
+exit 0
