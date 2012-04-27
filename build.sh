@@ -36,7 +36,7 @@ echo "Building t38modem..."
 
 cd t38modem
 make PTLIBDIR=$WORKING_DIR/ptlib OPALDIR=$WORKING_DIR/opal USE_OPAL=1 USE_UNIX98_PTY=1 opt
-cp -v obj_linux_x86_64_opal/t38modem /opt/t38modem/bin
+cp -v obj_linux_*_opal/t38modem /opt/t38modem/bin
 cd $WORKING_DIR
 
 echo
