@@ -8,3 +8,18 @@
 # Can also ignore all directories and files in a directory.
 tmp/**/* 
 *.svn*
+
+#ptlib
+ptlib/autom4te.cache 
+ptlib/a.out 
+ptlib/aclocal.m4
+ptlib/lib*
+
+#opal
+opal/**/*.o
+opal/**/*.so
+opal/lib*
+
+**/config.log
+**/config.status
+**/config.err
