@@ -20,6 +20,9 @@ opal/**/*.o
 opal/**/*.so
 opal/lib*
 
+#t38modem
+t38modem/obj_linux_x86_64*
+
 **/config.log
 **/config.status
 **/config.err
