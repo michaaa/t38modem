@@ -19,6 +19,8 @@ The standalone version of t38modem will be put to /opt/t38modem and can be invok
 
 LD_LIBRARY_PATH=LD_LIBRARY_PATH:/opt/t38modem/lib/ /opt/t38modem/bin/t38modem <parameters>
 
+Alternativly you can add /opt/t38modem/lib to /etc/ld.conf.d, build.sh asks to do so.
+
 You can invoke t38modem by using the provided init script. Put configuration details in /etc/default/t38modem fitting your needs or feel free to edit the init script.
 
 To activate an FaxModem in HylaFax, put modem config file from t38modem/HylaFAX to /etc/hylafax/config.ttyT38-<n> for as much devices you created.
