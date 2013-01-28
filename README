@@ -24,3 +24,5 @@ Alternativly you can add /opt/t38modem/lib to /etc/ld.conf.d, build.sh asks to d
 You can invoke t38modem by using the provided init script. Put configuration details in /etc/default/t38modem fitting your needs or feel free to edit the init script.
 
 To activate an FaxModem in HylaFax, put modem config file from t38modem/HylaFAX to /etc/hylafax/config.ttyT38-<n> for as much devices you created.
+
+To get t38modem started using the init-Script, it is necessary to create /var/run/t38modem because init script wants to put pid files there.
