@@ -16,6 +16,7 @@ echo
 echo "Building ptlib..."
 
 cd ptlib
+export PTLIBDIR=`pwd`
 ./configure --prefix /opt/t38modem
 make
 make install
