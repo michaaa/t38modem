@@ -26,3 +26,14 @@ You can invoke t38modem by using the provided init script. Put configuration det
 To activate an FaxModem in HylaFax, put modem config file from t38modem/HylaFAX to /etc/hylafax/config.ttyT38-<n> for as much devices you created.
 
 To get t38modem started using the init-Script, it is necessary to create /var/run/t38modem because init script wants to put pid files there.
+
+
+August 2013:
+
+Added support for G.711 Fax Passthrough, using spandsp_fax_pwplugin and spandsp-0.0.6 lib (both added to package) as described here
+
+http://sourceforge.net/p/t38modem/support-requests/4/
+
+If your sip gateway doesn't support T.38 in combination with t38moden (f.i. Cisco gateways), add --sip-disable-t38-mode to command line in init script.
+
+Sure, you can still use t38 mode and add additional G.711 support by using spandsp_fax_pwplugin. If you don't add --sip-disable-t38-mode, G.711 mode will be established. If T.38 mode can be esatblished, session will be switched to T.38. If this won't work, esteblished G.711 transport is used for fax transport.

@@ -24,10 +24,26 @@ cd $WORKING_DIR
 
 
 echo
+echo "Building SpanDSP..."
+
+cd spandsp-0.0.6 
+PKG_CONFIG_PATH=/opt/t38modem/lib/pkgconfig ./configure --prefix /opt/t38modem
+make
+make install
+cd $WORKING_DIR
+
+echo
 echo "Building OPAL..."
 
 cd opal
+export LIBRARY_PATH=/opt/t38modem/include/
+export CPLUS_INCLUDE_PATH=/opt/t38modem/include/
 PKG_CONFIG_PATH=/opt/t38modem/lib/pkgconfig ./configure --prefix /opt/t38modem
+make
+make install
+echo
+echo "Adding spandsp_fax_pwplugin (G.711 fax support)..."
+cd plugins/fax/fax_spandsp
 make
 make install
 cd $WORKING_DIR
