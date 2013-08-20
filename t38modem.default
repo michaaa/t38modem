@@ -10,7 +10,16 @@ T38_PTY_PER_PROCESS=2
 START_PORT=5060
 
 # IP of you T38 gateway device
-ASTERISK_IP=192.168.202.2
+GATEWAY_IP=192.168.202.2
 
 # Bind to this local ip (defauls to all)
 BIND_IP=*
+
+# register to sip account / trunk?
+# SIP_REGISTER=<username>@<gateway>,<password>
+
+# use sip proxy?
+# SIP_PROXY=<username>:<password>@<proxy>
+
+# SIP_DEFAULT_USERNAME=<username>
+# SIP_DEFAULT_DISPLAYNAME="My Personal Fax Server"

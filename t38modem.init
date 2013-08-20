@@ -13,13 +13,23 @@ export LD_LIBRARY_PATH=LD_LIBRARY_PATH:/opt/t38modem/lib/        # This is neede
  
 T38_PROCESSES=1
 T38_PTY_PER_PROCESS=2
+
+
 START_PORT=5060
-ASTERISK_IP=192.168.202.2
+GATEWAY_IP=192.168.202.2
 BIND_IP=*
+ADD_COMMANDLINE="-t --no-h232"
+SIP_REGISTER=
+SIP_PROXY=
+SIP_DEFAULT_USERNAME=
+SIP_DEFAULT_DISPLAYNAME="Fax Server"
+
+T38_ROUTE="--route modem:.*=sip:<dn>@${GATEWAY_IP} --route sip:.*=modem:<dn>"
 
 [ -r /etc/default/t38modem ] && . /etc/default/t38modem
 
- 
+
+
 case "$1" in
           start)
                     COUNTER=0
@@ -35,7 +45,30 @@ case "$1" in
 				   fi
 				PCOUNT=$[ PCOUNT + 1 ]
 			      done
-                              COMMAND="/opt/t38modem/bin/t38modem -t -o /var/log/t38modem${COUNTER}.log --no-h323 -u T38modem${COUNTER} --sip-listen udp\$${BIND_IP}:${CURRENT_PORT} --ptty $PORT_STRING --route modem:.*=sip:<dn>@${ASTERISK_IP} --route sip:.*=modem:<dn>"
+
+			      U_STRING=""
+			      if [ "${SIP_DEFAULT_USERNAME}" == "" ]; then
+					U_STRING="-u T38modem${COUNTER}"
+			      else
+					U_STRING="-u ${SIP_DEFAULT_USERNAME}"
+			      fi
+
+			      DISPLAYNAME_STRING=""
+			      if [ "${SIP_DEFAULT_DISPLAYNAME}" != "" ]; then
+					DISPLAYNAME_STRING="--displayname \"${SIP_DEFAULT_DISPLAYNAME}\""
+			      fi
+
+			      SIPPROXY_STRING=""
+			      if [ "${SIP_PROXY}" != "" ]; then
+					SIPPROXY_STRING="--sip-proxy ${SIP_PROXY}"
+			      fi
+
+			      SIPREGISTER_STRING=""
+			      if [ "${SIP_REGISTER}" != "" ]; then
+					SIP_REGISTER="--sip-register ${SIP_REGISTER}"
+			      fi
+
+                              COMMAND="/opt/t38modem/bin/t38modem $ADD_COMMANDLINE -o /var/log/t38modem${COUNTER}.log $U_STRING $DISPLAYNAME_STRING $SIP_REGISTER $SIPPROXY_STRING --sip-listen udp\$${BIND_IP}:${CURRENT_PORT} --ptty $PORT_STRING $T38_ROUTE"
  
                               exec $COMMAND > /dev/null 2>&1 &
  
