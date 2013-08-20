@@ -15,6 +15,11 @@ ptlib/a.out
 ptlib/aclocal.m4
 ptlib/lib*
 
+#spandsp
+spandsp-0.0.6/**/*.o
+spandsp-0.0.6/**/*.so
+spandsp-0.0.6/**/*.lo
+
 #opal
 opal/**/*.o
 opal/**/*.so
