@@ -36,4 +36,4 @@ http://sourceforge.net/p/t38modem/support-requests/4/
 
 If your sip gateway doesn't support T.38 in combination with t38moden (f.i. Cisco gateways), add --sip-disable-t38-mode to command line in init script.
 
-Sure, you can still use t38 mode and add additional G.711 support by using spandsp_fax_pwplugin. If you don't add --sip-disable-t38-mode, G.711 mode will be established. If T.38 mode can be esatblished, session will be switched to T.38. If this won't work, esteblished G.711 transport is used for fax transport.
+Sure, you can still use T.38 mode and add additional G.711 support by using spandsp_fax_pwplugin. If you don't add --sip-disable-t38-mode, G.711 mode will be established. If T.38 mode can be esatblished, session will be switched over to T.38. If this won't work, established G.711 transport is used as an fallback option for fax transport.
