@@ -36,8 +36,9 @@ echo
 echo "Building OPAL..."
 
 cd opal
-export LIBRARY_PATH=/opt/t38modem/include/
+export LIBRARY_PATH=/opt/t38modem/lib/
 export CPLUS_INCLUDE_PATH=/opt/t38modem/include/
+export C_INCLUDE_PATH=/opt/t38modem/include/
 PKG_CONFIG_PATH=/opt/t38modem/lib/pkgconfig ./configure --prefix /opt/t38modem
 make
 make install
