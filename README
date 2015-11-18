@@ -1,3 +1,6 @@
+Disclaimer: Since Debian Jessie upstream version of t38moden is working fine, you should not use this project anymore. Anyway, of course you can adapt using the init-Scripts for t38modem distributed here, however, it's not converted to systemd yet. 
+
+
 T38 Modem 2.0 Linux Build Package
 =================================
 
